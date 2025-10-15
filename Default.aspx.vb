@@ -53,6 +53,7 @@
             Return "zero"
         End If
 
+        'maps based on index to get literal string values
         Dim unitsMap() As String = {"zero", "one", "two", "three", "four", "five",
                                 "six", "seven", "eight", "nine", "ten", "eleven",
                                 "twelve", "thirteen", "fourteen", "fifteen",
@@ -62,21 +63,33 @@
 
         Dim parts As New List(Of String)()
 
+        'walk-through with example # of 1234567
         If number \ 1000000 > 0 Then
+            'returns "one million"
             parts.Add(NumberToString(number \ 1000000) & " million")
+
+            'remainder is 234567
             number = number Mod 1000000
         End If
 
+        'continue with 234567
         If number >= 1000 Then
+            'returns "two hundred thirty four thousand"
             parts.Add(NumberToString(number \ 1000) & " thousand")
+
+            'remainder of 567
             number = number Mod 1000
         End If
 
+        'continue 567
         If number >= 100 Then
+            'returns "five hundred"
             parts.Add(unitsMap(number \ 100) & " hundred")
+            'remainder of 67
             number = number Mod 100
         End If
 
+        'use the tens and units maps based on index to get the literal values for the remainder "sixty seven"
         If number > 0 Then
             If number < 20 Then
                 parts.Add(unitsMap(number))
