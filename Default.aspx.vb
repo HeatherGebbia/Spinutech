@@ -62,11 +62,6 @@
 
         Dim parts As New List(Of String)()
 
-        If number \ 1000000000 > 0 Then
-            parts.Add(NumberToString(number \ 1000000000) & " billion")
-            number = number Mod 1000000000
-        End If
-
         If number \ 1000000 > 0 Then
             parts.Add(NumberToString(number \ 1000000) & " million")
             number = number Mod 1000000
