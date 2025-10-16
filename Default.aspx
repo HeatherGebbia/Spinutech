@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Customer Questionnaire</title>
+    <title>Code Test</title>
 
 
 </head>
@@ -89,9 +89,10 @@
                 <ul>
                     <li><a href="#tabs-1">Exercise 1</a></li>
                     <li><a href="#tabs-2">Exercise 2</a></li>
+                    <li><a href="#tabs-6">Exercise 6</a></li>
                 </ul>
 
-                
+
                 <div id="tabs-1">
                     <asp:Label ID="lblMessage1" runat="server" CssClass="lblError"></asp:Label>
                     <table id="Table1" border="0" cellpadding="1" cellspacing="1" width="100%">
@@ -114,149 +115,170 @@
                 </div>
                 <div id="tabs-2">
                     <asp:Label ID="lblMessage2" runat="server" CssClass="lblError"></asp:Label>
-                    <table id="Table1" border="0" cellpadding="1" cellspacing="1" width="100%">
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label3" runat="server" CssClass="tableCell" Text="Select the cards in your poker hand to evaluate:"></asp:Label>
-                            <br />
-                            <asp:DropDownList ID="ddlFaceValue1" runat="server">
-    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="A" Value="A"></asp:ListItem>
-    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-    <asp:ListItem Text="4" Value="4"></asp:ListItem>
-    <asp:ListItem Text="5" Value="5"></asp:ListItem>
-    <asp:ListItem Text="6" Value="6"></asp:ListItem>
-    <asp:ListItem Text="7" Value="7"></asp:ListItem>
-                                <asp:ListItem Text="8" Value="8"></asp:ListItem>
-                                <asp:ListItem Text="9" Value="9"></asp:ListItem>
-                                <asp:ListItem Text="10" Value="10"></asp:ListItem>
-                                <asp:ListItem Text="J" Value="J"></asp:ListItem>
-                                <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
-                                <asp:ListItem Text="K" Value="K"></asp:ListItem>
-</asp:DropDownList>
-                            &nbsp;
+                    <table id="Table1b" border="0" cellpadding="1" cellspacing="1" width="100%">
+                        <tr>
+                            <td>
+                                <asp:Label ID="Label3" runat="server" CssClass="tableCell" Text="Select the cards in your poker hand to evaluate:"></asp:Label>
+                                <br />
+                                <asp:DropDownList ID="ddlFaceValue1" runat="server">
+                                    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
+                                    <asp:ListItem Text="A" Value="A"></asp:ListItem>
+                                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                    <asp:ListItem Text="6" Value="6"></asp:ListItem>
+                                    <asp:ListItem Text="7" Value="7"></asp:ListItem>
+                                    <asp:ListItem Text="8" Value="8"></asp:ListItem>
+                                    <asp:ListItem Text="9" Value="9"></asp:ListItem>
+                                    <asp:ListItem Text="10" Value="10"></asp:ListItem>
+                                    <asp:ListItem Text="J" Value="J"></asp:ListItem>
+                                    <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
+                                    <asp:ListItem Text="K" Value="K"></asp:ListItem>
+                                </asp:DropDownList>
+                                &nbsp;
                                                         <asp:DropDownList ID="ddlSuit1" runat="server">
-    <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
-    <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
-    <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
-    <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
-</asp:DropDownList>
-                                                        <br />
-                            <asp:DropDownList ID="ddlFaceValue2" runat="server">
-    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="A" Value="A"></asp:ListItem>
-    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-    <asp:ListItem Text="4" Value="4"></asp:ListItem>
-    <asp:ListItem Text="5" Value="5"></asp:ListItem>
-    <asp:ListItem Text="6" Value="6"></asp:ListItem>
-    <asp:ListItem Text="7" Value="7"></asp:ListItem>
-                                <asp:ListItem Text="8" Value="8"></asp:ListItem>
-                                <asp:ListItem Text="9" Value="9"></asp:ListItem>
-                                <asp:ListItem Text="10" Value="10"></asp:ListItem>
-                                <asp:ListItem Text="J" Value="J"></asp:ListItem>
-                                <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
-                                <asp:ListItem Text="K" Value="K"></asp:ListItem>
-</asp:DropDownList>
-                            &nbsp;
+                                                            <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
+                                                            <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
+                                                            <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
+                                                            <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
+                                                            <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                <br />
+                                <asp:DropDownList ID="ddlFaceValue2" runat="server">
+                                    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
+                                    <asp:ListItem Text="A" Value="A"></asp:ListItem>
+                                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                    <asp:ListItem Text="6" Value="6"></asp:ListItem>
+                                    <asp:ListItem Text="7" Value="7"></asp:ListItem>
+                                    <asp:ListItem Text="8" Value="8"></asp:ListItem>
+                                    <asp:ListItem Text="9" Value="9"></asp:ListItem>
+                                    <asp:ListItem Text="10" Value="10"></asp:ListItem>
+                                    <asp:ListItem Text="J" Value="J"></asp:ListItem>
+                                    <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
+                                    <asp:ListItem Text="K" Value="K"></asp:ListItem>
+                                </asp:DropDownList>
+                                &nbsp;
                                                         <asp:DropDownList ID="ddlSuit2" runat="server">
-    <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
-    <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
-    <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
-    <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
-</asp:DropDownList>
-                                                                                   <br />
-                            <asp:DropDownList ID="ddlFaceValue3" runat="server">
-    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="A" Value="A"></asp:ListItem>
-    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-    <asp:ListItem Text="4" Value="4"></asp:ListItem>
-    <asp:ListItem Text="5" Value="5"></asp:ListItem>
-    <asp:ListItem Text="6" Value="6"></asp:ListItem>
-    <asp:ListItem Text="7" Value="7"></asp:ListItem>
-                                <asp:ListItem Text="8" Value="8"></asp:ListItem>
-                                <asp:ListItem Text="9" Value="9"></asp:ListItem>
-                                <asp:ListItem Text="10" Value="10"></asp:ListItem>
-                                <asp:ListItem Text="J" Value="J"></asp:ListItem>
-                                <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
-                                <asp:ListItem Text="K" Value="K"></asp:ListItem>
-</asp:DropDownList>
-                            &nbsp;
+                                                            <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
+                                                            <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
+                                                            <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
+                                                            <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
+                                                            <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                <br />
+                                <asp:DropDownList ID="ddlFaceValue3" runat="server">
+                                    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
+                                    <asp:ListItem Text="A" Value="A"></asp:ListItem>
+                                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                    <asp:ListItem Text="6" Value="6"></asp:ListItem>
+                                    <asp:ListItem Text="7" Value="7"></asp:ListItem>
+                                    <asp:ListItem Text="8" Value="8"></asp:ListItem>
+                                    <asp:ListItem Text="9" Value="9"></asp:ListItem>
+                                    <asp:ListItem Text="10" Value="10"></asp:ListItem>
+                                    <asp:ListItem Text="J" Value="J"></asp:ListItem>
+                                    <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
+                                    <asp:ListItem Text="K" Value="K"></asp:ListItem>
+                                </asp:DropDownList>
+                                &nbsp;
                                                         <asp:DropDownList ID="ddlSuit3" runat="server">
-    <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
-    <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
-    <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
-    <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
-</asp:DropDownList>
-                                                                                                               <br />
-                            <asp:DropDownList ID="ddlFaceValue4" runat="server">
-    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="A" Value="A"></asp:ListItem>
-    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-    <asp:ListItem Text="4" Value="4"></asp:ListItem>
-    <asp:ListItem Text="5" Value="5"></asp:ListItem>
-    <asp:ListItem Text="6" Value="6"></asp:ListItem>
-    <asp:ListItem Text="7" Value="7"></asp:ListItem>
-                                <asp:ListItem Text="8" Value="8"></asp:ListItem>
-                                <asp:ListItem Text="9" Value="9"></asp:ListItem>
-                                <asp:ListItem Text="10" Value="10"></asp:ListItem>
-                                <asp:ListItem Text="J" Value="J"></asp:ListItem>
-                                <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
-                                <asp:ListItem Text="K" Value="K"></asp:ListItem>
-</asp:DropDownList>
-                            &nbsp;
+                                                            <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
+                                                            <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
+                                                            <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
+                                                            <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
+                                                            <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                <br />
+                                <asp:DropDownList ID="ddlFaceValue4" runat="server">
+                                    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
+                                    <asp:ListItem Text="A" Value="A"></asp:ListItem>
+                                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                    <asp:ListItem Text="6" Value="6"></asp:ListItem>
+                                    <asp:ListItem Text="7" Value="7"></asp:ListItem>
+                                    <asp:ListItem Text="8" Value="8"></asp:ListItem>
+                                    <asp:ListItem Text="9" Value="9"></asp:ListItem>
+                                    <asp:ListItem Text="10" Value="10"></asp:ListItem>
+                                    <asp:ListItem Text="J" Value="J"></asp:ListItem>
+                                    <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
+                                    <asp:ListItem Text="K" Value="K"></asp:ListItem>
+                                </asp:DropDownList>
+                                &nbsp;
                                                         <asp:DropDownList ID="ddlSuit4" runat="server">
-    <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
-    <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
-    <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
-    <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
-</asp:DropDownList>
-                                                                                                                                           <br />
-                            <asp:DropDownList ID="ddlFaceValue5" runat="server">
-    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="A" Value="A"></asp:ListItem>
-    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-    <asp:ListItem Text="4" Value="4"></asp:ListItem>
-    <asp:ListItem Text="5" Value="5"></asp:ListItem>
-    <asp:ListItem Text="6" Value="6"></asp:ListItem>
-    <asp:ListItem Text="7" Value="7"></asp:ListItem>
-                                <asp:ListItem Text="8" Value="8"></asp:ListItem>
-                                <asp:ListItem Text="9" Value="9"></asp:ListItem>
-                                <asp:ListItem Text="10" Value="10"></asp:ListItem>
-                                <asp:ListItem Text="J" Value="J"></asp:ListItem>
-                                <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
-                                <asp:ListItem Text="K" Value="K"></asp:ListItem>
-</asp:DropDownList>
-                            &nbsp;
+                                                            <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
+                                                            <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
+                                                            <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
+                                                            <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
+                                                            <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                <br />
+                                <asp:DropDownList ID="ddlFaceValue5" runat="server">
+                                    <asp:ListItem Selected="True" Text="Select Face Value" Value="-1"></asp:ListItem>
+                                    <asp:ListItem Text="A" Value="A"></asp:ListItem>
+                                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                    <asp:ListItem Text="6" Value="6"></asp:ListItem>
+                                    <asp:ListItem Text="7" Value="7"></asp:ListItem>
+                                    <asp:ListItem Text="8" Value="8"></asp:ListItem>
+                                    <asp:ListItem Text="9" Value="9"></asp:ListItem>
+                                    <asp:ListItem Text="10" Value="10"></asp:ListItem>
+                                    <asp:ListItem Text="J" Value="J"></asp:ListItem>
+                                    <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
+                                    <asp:ListItem Text="K" Value="K"></asp:ListItem>
+                                </asp:DropDownList>
+                                &nbsp;
                                                         <asp:DropDownList ID="ddlSuit5" runat="server">
-    <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
-    <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
-    <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
-    <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
-    <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
-</asp:DropDownList>
-                           <br /><br />
+                                                            <asp:ListItem Selected="True" Text="Select Suit" Value="-1"></asp:ListItem>
+                                                            <asp:ListItem Text="Hearts" Value="h"></asp:ListItem>
+                                                            <asp:ListItem Text="Diamonds" Value="d"></asp:ListItem>
+                                                            <asp:ListItem Text="Spades" Value="s"></asp:ListItem>
+                                                            <asp:ListItem Text="Clubs" Value="c"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                <br />
+                                <br />
 
-                            <asp:Button ID="btnSubmitPoker" runat="server" Text="Submit" />&nbsp;
+                                <asp:Button ID="btnSubmitPoker" runat="server" Text="Submit" />&nbsp;
                              <asp:Button ID="btnReset" runat="server" Text="Reset" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label4" runat="server" CssClass="tableCell" Text="Result:"></asp:Label>&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="Label4" runat="server" CssClass="tableCell" Text="Result:"></asp:Label>&nbsp;
                     <asp:Label ID="lblResultPoker" runat="server" CssClass="tableCelltext"></asp:Label>
-                        </td>
-                    </tr>
-                </table>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
+                <div id="tabs-6">
+    <asp:Label ID="lblMessage6" runat="server" CssClass="lblError"></asp:Label>
+    <table id="Table1a" border="0" cellpadding="1" cellspacing="1" width="100%">
+        <tr>
+            <td>
+                <asp:Label ID="Label6" runat="server" CssClass="tableCell" Text="Enter a numeric value to determine whether or not it is a palindrome:"></asp:Label>
+                &nbsp;
+                <asp:TextBox ID="txtPalindromeCheck" runat="server" Width="300"></asp:TextBox>
+                &nbsp;
+                <asp:Button ID="btnPalindromeCheck" runat="server" Text="Submit" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label ID="Label7" runat="server" CssClass="tableCell" Text="Result:"></asp:Label>&nbsp;
+        <asp:Label ID="lblPalindromeResult" runat="server" CssClass="tableCelltext"></asp:Label>
+            </td>
+        </tr>
+    </table>
+</div>
             </div>
         </main>
     </form>

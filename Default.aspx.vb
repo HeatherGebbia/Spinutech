@@ -1,4 +1,6 @@
-﻿Public Class _Default
+﻿Imports Newtonsoft.Json.Linq
+
+Public Class _Default
     Inherits Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
@@ -6,6 +8,7 @@
         Try
             Me.btnSubmit.Attributes.Add("onclick", disableButton(Me.Page, Me.btnSubmit))
             Me.btnSubmitPoker.Attributes.Add("onclick", disableButton(Me.Page, Me.btnSubmitPoker))
+            Me.btnPalindromeCheck.Attributes.Add("onclick", disableButton(Me.Page, Me.btnPalindromeCheck))
             Page.SetFocus(txtAmount)
         Catch ex As Exception
             lblMessage1.Text = "Error loading page. " & ex.Message
@@ -83,9 +86,9 @@
 
         'continue 567
         If number >= 100 Then
-            'returns "five hundred"
+            'returns "two hundred", then "five hundred"
             parts.Add(unitsMap(number \ 100) & " hundred")
-            'remainder of 67
+            'remainder of 34, then 67
             number = number Mod 100
         End If
 
@@ -161,17 +164,25 @@
     End Sub
 
     Function EvaluateHand(hand As String) As String
+
+        'Split the hand string into separate card strings using a space character, trim and lowercase each one, and store them in a list
         Dim cards = hand.Split(" "c).Select(Function(c) c.Trim().ToLower()).ToList()
+        'get everything except the last char (the face value)
         Dim ranks = cards.Select(Function(c) c.Substring(0, c.Length - 1)).ToList()
+        'get the last char (the suit)
         Dim suits = cards.Select(Function(c) c.Last()).ToList()
 
-        ' Convert ranks to numbers for easy sorting and straight checking
+        'Take each rank string r, convert it to a number with RankValue(r), then sort all those numbers in ascending order, and put them in a list.
         Dim rankValues = ranks.Select(Function(r) RankValue(r)).OrderBy(Function(v) v).ToList()
 
+        'check if all cards are the same suit
         Dim isFlush = suits.Distinct().Count() = 1
+        'check if all cards are different suits but in order
         Dim isStraight = rankValues.Distinct().Count() = 5 AndAlso (rankValues.Max() - rankValues.Min() = 4)
 
+        'group all cards that have the same face value and order desc
         Dim groups = rankValues.GroupBy(Function(v) v).OrderByDescending(Function(g) g.Count()).ToList()
+        'counts the groups to determine hand type checked below (example, 2 pairs, full house, etc.) 
         Dim counts = groups.Select(Function(g) g.Count()).ToList()
 
         ' Determine hand rank
@@ -236,5 +247,42 @@
         ddlFaceValue5.SelectedValue = "-1"
         ddlSuit5.SelectedValue = "-1"
     End Sub
+
+    Protected Sub btnPalindromeCheck_Click(sender As Object, e As EventArgs) Handles btnPalindromeCheck.Click
+
+        Try
+            lblMessage6.Text = ""
+
+            'confirm valid # was submitted
+            If IsNumeric(txtPalindromeCheck.Text) = False Then
+                lblMessage6.Text = "Please enter a valid numeric amount."
+                Exit Sub
+            ElseIf CInt(txtPalindromeCheck.Text) < 0 Then
+                lblMessage6.Text = "Please enter a positive value."
+                Exit Sub
+            End If
+
+            If PalindromeCheck(CDec(txtPalindromeCheck.Text)) Then
+                lblPalindromeResult.Text = $"{txtPalindromeCheck.Text} is a palindrome."
+            Else
+                lblPalindromeResult.Text = $"{txtPalindromeCheck.Text} is not a palindrome."
+            End If
+        Catch ex As Exception
+            lblMessage6.Text = "Error converting checking whether value is a palindrome. " & ex.Message
+            Exit Sub
+        End Try
+
+    End Sub
+
+    Function PalindromeCheck(number As Integer) As Boolean
+        ' Convert the number to a string
+        Dim numStr As String = number.ToString()
+
+        ' Reverse the string
+        Dim reversed As String = StrReverse(numStr)
+
+        ' Compare the original and reversed strings
+        Return numStr = reversed
+    End Function
 
 End Class
