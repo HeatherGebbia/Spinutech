@@ -26,8 +26,8 @@ Public Class _Default
             If IsNumeric(txtAmount.Text) = False Then
                 lblMessage1.Text = "Please enter a valid numeric amount."
                 Exit Sub
-            ElseIf CDec(txtAmount.Text) < 0 Or CDec(txtAmount.Text) > 999999999.99 Then
-                lblMessage1.Text = "Please enter a value between 0 and 999,999,999.99."
+            ElseIf CDec(txtAmount.Text) > 999999999.99 Then
+                lblMessage1.Text = "Please enter a value < 999,999,999.99."
                 Exit Sub
             End If
 
@@ -40,10 +40,17 @@ Public Class _Default
     End Sub
 
     Function ConvertAmountToString(ByVal amount As Decimal) As String
-        Dim dollars As Integer = Math.Floor(amount)
-        Dim cents As Integer = CInt((amount - dollars) * 100)
+        Dim isNegative As Boolean
+        If amount < 0 Then
+            isNegative = True
+        Else
+            isNegative = False
+        End If
 
-        Dim wordsText As String = NumberToString(dollars)
+        Dim dollars As Integer = Math.Floor(Math.Abs(amount))
+        Dim cents As Integer = CInt((Math.Abs(amount) - dollars) * 100)
+
+        Dim wordsText As String = NumberToString(dollars, isNegative)
         Dim centsText As String = cents.ToString("00")
 
         wordsText = Char.ToUpper(wordsText(0)) & wordsText.Substring(1)
@@ -51,7 +58,8 @@ Public Class _Default
         Return $"{wordsText} and {centsText}/100 dollars"
     End Function
 
-    Private Function NumberToString(ByVal number As Long) As String
+    Private Function NumberToString(ByVal number As Long, ByVal isNegative As Boolean) As String
+
         If number = 0 Then
             Return "zero"
         End If
@@ -66,33 +74,28 @@ Public Class _Default
 
         Dim parts As New List(Of String)()
 
-        'walk-through with example # of 1234567
         If number \ 1000000 > 0 Then
-            'returns "one million"
-            parts.Add(NumberToString(number \ 1000000) & " million")
-
-            'remainder is 234567
+            parts.Add(NumberToString(number \ 1000000, False) & " million")
             number = number Mod 1000000
         End If
 
-        'continue with 234567
-        If number >= 1000 Then
-            'returns "two hundred thirty four thousand"
-            parts.Add(NumberToString(number \ 1000) & " thousand")
-
-            'remainder of 567
+        'example # of 2523.04
+        If number >= 1000 Or number <= -1000 Then
+            'returns "two thousand"
+            parts.Add(NumberToString(number \ 1000, False) & " thousand")
+            'remainder of 523
             number = number Mod 1000
         End If
 
-        'continue 567
+        'continue 523
         If number >= 100 Then
-            'returns "two hundred", then "five hundred"
+            'returns "five hundred"
             parts.Add(unitsMap(number \ 100) & " hundred")
-            'remainder of 34, then 67
+            'remainder 23
             number = number Mod 100
         End If
 
-        'use the tens and units maps based on index to get the literal values for the remainder "sixty seven"
+        'use the tens and units maps based on index to get the literal values for the remainder
         If number > 0 Then
             If number < 20 Then
                 parts.Add(unitsMap(number))
@@ -102,12 +105,19 @@ Public Class _Default
                 If units = 0 Then
                     parts.Add(tensMap(tens))
                 Else
+                    'returns "twenty-three"
                     parts.Add(tensMap(tens) & "-" & unitsMap(units))
                 End If
             End If
         End If
 
-        Return String.Join(" ", parts)
+        Dim result As String = String.Join(" ", parts)
+
+        If isNegative Then
+            result = "Negative " & result
+        End If
+
+        Return result
     End Function
 
 
